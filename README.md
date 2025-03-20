@@ -12,7 +12,7 @@
     * wsl pwd
     * wsl --install -d Ubuntu-24.04
 
-![./screens/step_1.png](WSL Installation)
+![Step-1](./screens/step_1.png)
 
 2. NodeJS
 3. PostgreSQL

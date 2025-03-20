@@ -23,9 +23,8 @@
 > *Step-1*: Install Ubuntu-24.04 on Windows with WSL -> `wsl --install -d Ubuntu-24.04`
 ![Step-1](./screens/step_1.png)
 
-Wait 5 to 10 minutes depending on your internet speed
 এই ধাপে ৫ মিনিট থেকে ৩০ মিনিট পর্যন্ত অপেক্ষা করতে হতে পারে (আপনার ইন্টারনেট স্পিড এর উপর নির্ভরশীল)
-![Step-1.2](./screens/step_1_2.png)
+> ![Step-1.2](./screens/step_1_2.png)
 
 > *Step-2*: `wsl -d Ubuntu-24.04`
 ![Step-2](./screens/step_2_0.png)
@@ -39,9 +38,6 @@ Wait 5 to 10 minutes depending on your internet speed
 এর পর রুট ডিরেক্টরিতে যাবার জন্য `cd` লিখে কীবোর্ড এর `এন্টার` কী প্রেস করুন
 
 ## 2. NodeJS
-NodeJS ইনস্টলেশনের জন্য এই লিঙ্কে [ক্লিক করুন](https://nodejs.org/en/download) 
-এই ওয়েবসাইটি NodeJS এর অফিসিয়াল ওয়েবসাইট, এই ওয়েবসাইট থেকে NodeJS ইনস্টলেশন এর কমান্ড ও গাইডলাইন পাওয়া যাবেনদ
-
 আমরা যেহতু WSL এর মাধ্যমে অপারেটিং সিস্টেম লিনাক্স এর Ubuntu-24.04 ডিস্ট্রো ব্যবহার করছি সুতরাং নিচের কমান্ড গুলো ক্রমান্নয়ে প্রয়োগের মাধ্যমে NodeJS ইনস্টলেশন সম্পন্ন করব
 
 > `apt install -y ca-certificates curl gnupg`

@@ -59,7 +59,79 @@
 
 
 ## 3. PostgreSQL
+PostgreSQL ডেটাবেজ সার্ভার ইনস্টলেশনের জন্য নিচের কমান্ডগুলো ক্রমান্নয়ে প্রয়োগ করুন
 
+> `apt install gnupg2 -y`
+
+> `echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list`
+
+> `curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/postgresql.gpg`
+
+> `apt update -y`
+
+> `apt install postgresql-17 postgresql-contrib-17 -y`
+
+> `systemctl enable postgresql`
+
+> `psql --version`
+
+উপরের কমান্ড গুলো যদি সব ঠিক মত রান করে থাকেন তবে নিচের স্ক্রীনে দেখানো আউটপুট দেখা যাবে
+![postgresql](./screens/postgresql.png)
+
+
+## 4. pgadmin
+> `apt install libgmp3-dev libpq-dev -y`
+
+> `python3 -V`
+> ![python](./screens/python3.png)
+
+> `apt install python3.12-venv -y`
+
+> `mkdir -p /var/log/pgadmin4`
+> `mkdir -p /var/lib/pgadmin4/sessions`
+> `mkdir -p /var/lib/pgadmin4/storage`
+> `mkdir -p /var/lib/pgadmin4/azurecredentialcache`
+
+> `mkdir -p /opt/pgadmin`
+
+> `python3 -m venv /opt/pgadmin/.venv`
+
+> `/opt/pgadmin/.venv/bin/python -m pip install -U pip`
+
+> `/opt/pgadmin/.venv/bin/python -m pip install --upgrade pip setuptools wheel`
+
+> `wget https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v9.1/pip/pgadmin4-9.1-py3-none-any.whl -P /opt/pgadmin`
+
+> `source /opt/pgadmin/.venv/bin/activate`
+
+> `pip3 install pgadmin4-9.1-py3-none-any.whl`
+
+
+> `/opt/pgadmin/.venv/bin/pip install gunicorn`
+
+
+> `nano /opt/pgadmin/.venv/lib/python3.12/site-packages/pgadmin4/config_local.py`
+
+```
+LOG_FILE = '/var/log/pgadmin4/pgadmin4.log'
+SQLITE_PATH = '/var/lib/pgadmin4/pgadmin4.db'
+SESSION_DB_PATH = '/var/lib/pgadmin4/sessions'
+STORAGE_DIR = '/var/lib/pgadmin4/storage'
+AZURE_CREDENTIAL_CACHE_DIR = '/var/lib/pgadmin4/azurecredentialcache'
+SERVER_MODE = True
+```
+
+
+> `/opt/pgadmin/.venv/bin/python /opt/pgadmin/.venv/lib/python3.12/site-packages/pgadmin4/setup.py setup-db`
+> ![setup-db](./screens/setup-db.png)
+```
+Email address: mostain@reporunner.com
+Password: Bangladesh2025
+Retype password: Bangladesh2025
+```
+
+> `/opt/pgadmin/.venv/bin/python /opt/pgadmin/.venv/lib/python3.12/site-packages/pgadmin4/setup.py get-users`
+> ![user-list](./screens/user-list.png)
 
 ## Resource Link
 * https://learn.microsoft.com/en-us/windows/wsl/install

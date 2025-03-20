@@ -12,6 +12,7 @@
     * wsl pwd
     * wsl --install -d Ubuntu-24.04
 
+> *Step-1*: Install Ubuntu-24.04 on Windows with WSL
 ![Step-1](./screens/step_1.png)
 
 2. NodeJS

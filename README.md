@@ -205,6 +205,42 @@ WantedBy=multi-user.target
 > আপনার পছন্দের ব্রাউসার ওপেন করে এড্রেস বারে `http://pgadmin.reporunner.local` টাইপ করে এন্টার প্রেস করলেই নিচের স্ক্রিন দেখতে পাবেন
 > ![pgadmin_web](./screens/pgadmin_web.png)
 
+## 5. pgvector
+
+> `apt install make`
+
+> `apt install gcc -y`
+
+> `apt install postgresql-server-dev-all -y`
+
+> `cd /tmp`
+
+> `git clone --branch v0.8.0 https://github.com/pgvector/pgvector.git`
+
+> `cd pgvector`
+
+> `make`
+
+> `make install`
+
+সফলভাবে **pgvector** ইনস্টল হয়েছে কিনা চেক করতে নিচের কমান্ড গুলোর ক্রমান্নয়ে প্রয়োগ করুন
+> `sudo -u postgres psql`
+
+> `CREATE EXTENSION vector;`
+
+> `CREATE TABLE items (id bigserial PRIMARY KEY, embedding vector(3));`
+
+> `INSERT INTO items (embedding) VALUES ('[1,2,3]'), ('[4,5,6]');`
+
+> `SELECT * FROM items ORDER BY embedding <-> '[3,1,2]' LIMIT 5;`
+
+> `\dx` or `select extname from pg_extension;`
+
+সবঠিক থাকলে নিচের স্ক্রিন দেখতে পাবেন
+> ![pgvector](./screens/pgvector.png)
+
 ## Resource Link
 * https://learn.microsoft.com/en-us/windows/wsl/install
+* https://github.com/pgvector/pgvector
+* https://www.postgresql.org/docs/current/view-pg-available-extensions.html
 * https://ollama.com

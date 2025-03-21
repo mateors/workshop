@@ -37,6 +37,20 @@
 
 এর পর রুট ডিরেক্টরিতে যাবার জন্য `cd` লিখে কীবোর্ড এর `এন্টার` কী প্রেস করুন
 
+> সবশেষে হোমডিরেক্টরিতে `.wslconfig` নামে একটি ফাইল তৈরী করে নিচের কনটেন্ট লিখে সেভ করুন (নিচের কমান্ডটি প্রয়োগ করে নোটপ্যাডে .wslconfig ওপেন হলে কনটেন্ট কপি পেস্ট করে সেভ করুন)
+
+> ![wslconfig](./screens/wslconfig.png)
+> `notepad .wslconfig`
+```
+[wsl2]
+localhostForwarding = true
+networkingMode = NAT
+dnsProxy = true
+firewall = true
+dnsTunneling = false
+```
+
+
 ## 2. NodeJS
 আমরা যেহতু WSL এর মাধ্যমে অপারেটিং সিস্টেম লিনাক্স এর Ubuntu-24.04 ডিস্ট্রো ব্যবহার করছি সুতরাং নিচের কমান্ড গুলো ক্রমান্নয়ে প্রয়োগের মাধ্যমে NodeJS ইনস্টলেশন সম্পন্ন করব
 
@@ -106,6 +120,7 @@ PostgreSQL ডেটাবেজ সার্ভার ইনস্টলেশ�
 
 > `pip3 install pgadmin4-9.1-py3-none-any.whl`
 
+> `deactivate`
 
 > `/opt/pgadmin/.venv/bin/pip install gunicorn`
 
@@ -132,6 +147,58 @@ Retype password: Bangladesh2025
 
 > `/opt/pgadmin/.venv/bin/python /opt/pgadmin/.venv/lib/python3.12/site-packages/pgadmin4/setup.py get-users`
 > ![user-list](./screens/user-list.png)
+
+
+> `apt install nginx -y`
+
+> `nano /etc/nginx/sites-available/pgadmin.reporunner.local`
+```
+server {
+    listen 8080;
+    listen [::]:80;
+    server_name pgadmin.reporunner.local;
+    location / {
+        proxy_pass http://unix:/tmp/pgadmin4.sock;
+        include proxy_params;
+    }
+}
+```
+
+> `nano /etc/systemd/system/pgadmin4.service`
+
+```
+[Unit]
+Description=pgadmin4 service
+After=syslog.target network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/pgadmin/.venv/lib/python3.12/site-packages/pgadmin4
+ExecStart=/opt/pgadmin/.venv/bin/gunicorn --bind unix:/tmp/pgadmin4.sock --workers=1 --threads=25 pgAdmin4:app
+
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
+```
+
+> `systemctl daemon-reload`
+
+> `systemctl enable pgadmin4`
+
+> `systemctl start pgadmin4`
+
+> `systemctl status pgadmin4`
+
+## `DNS Entry`
+
+> নোটপ্যাড এডমিনিস্ট্রেটর মোড এ ওপেন করুন
+> ![open_as_administrator](./screens/openasadministrator.png)
+
+> এই `C:\Windows\System32\drivers\etc` লোকেশনে গিয়ে `pgadmin.reporunner.local` লাইনটি সংযুক্ত করুন 
+> ![hosts](./screens/hosts.png)
+
 
 ## Resource Link
 * https://learn.microsoft.com/en-us/windows/wsl/install

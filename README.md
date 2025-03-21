@@ -202,5 +202,8 @@ WantedBy=multi-user.target
 > নিচের ছবির মত `pgadmin.reporunner.local` লাইনটি সংযুক্ত করুন 
 > ![pgadmin_dns](./screens/pgadmin_dns.png)
 
+> আপনার পছন্দের ব্রাউসার ওপেন করে এড্রেস বারে `http://pgadmin.reporunner.local` টাইপ করে এন্টার প্রেস করলেই নিচের স্ক্রিন দেখতে পাবেন
+> ![pgadmin_web](./screens/pgadmin_web.png)
+
 ## Resource Link
 * https://learn.microsoft.com/en-us/windows/wsl/install

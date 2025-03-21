@@ -155,7 +155,7 @@ Retype password: Bangladesh2025
 > `nano /etc/nginx/sites-available/pgadmin.reporunner.local`
 ```
 server {
-    listen 8080;
+    listen 80;
     listen [::]:80;
     server_name pgadmin.reporunner.local;
     location / {
@@ -164,6 +164,8 @@ server {
     }
 }
 ```
+
+> `ln -sf /etc/nginx/sites-available/pgadmin.reporunner.local /etc/nginx/sites-enable`
 
 > `nano /etc/systemd/system/pgadmin4.service`
 
@@ -191,6 +193,8 @@ WantedBy=multi-user.target
 > `systemctl start pgadmin4`
 
 > `systemctl status pgadmin4`
+
+> `systemctl restart nginx`
 
 ### `DNS Entry`
 
@@ -248,6 +252,7 @@ Ollama is an open-source tool designed to run and manage large language models (
 > `curl -fsSL https://ollama.com/install.sh | sh`
 
 > `ollama -v`
+
 সফলভাবে ইনস্টল সম্পন্ন হলে নিচের স্ক্রীনের মত ভার্সন দেখতে পাবেন
 
 > ![ollama](./screens/ollama_version.png)
@@ -264,6 +269,9 @@ Ollama is an open-source tool designed to run and manage large language models (
 > `ollama list`
 
 Ollama API সম্পর্কে বিস্তারিত জানতে [এই লিঙ্কটি](https://github.com/ollama/ollama/blob/main/docs/api.md) ভিজিট করুন
+
+## 7. n8n
+
 
 ## Resource Link
 * https://learn.microsoft.com/en-us/windows/wsl/install

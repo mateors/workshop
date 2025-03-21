@@ -16,7 +16,8 @@
 3. PostgreSQL
 4. pgadmin
 5. pgvector
-6. n8n
+6. Ollama
+7. n8n
 
 ## 1. WSL Installation
 
@@ -191,7 +192,7 @@ WantedBy=multi-user.target
 
 > `systemctl status pgadmin4`
 
-## `DNS Entry`
+### `DNS Entry`
 
 > নোটপ্যাড এডমিনিস্ট্রেটর মোড এ ওপেন করুন
 > ![open_as_administrator](./screens/openasadministrator.png)
@@ -239,8 +240,34 @@ WantedBy=multi-user.target
 সবঠিক থাকলে নিচের স্ক্রিন দেখতে পাবেন
 > ![pgvector](./screens/pgvector.png)
 
+
+## 6. Ollama
+Ollama is an open-source tool designed to run and manage large language models (LLMs).
+
+নিচের কমান্ডটি ব্যবহার করে Ollama ইনস্টল করুন
+> `curl -fsSL https://ollama.com/install.sh | sh`
+
+> `ollama -v`
+সফলভাবে ইনস্টল সম্পন্ন হলে নিচের স্ক্রীনের মত ভার্সন দেখতে পাবেন
+
+> ![ollama](./screens/ollama_version.png)
+
+আমরা এই ওয়ার্কশপে দুটি ওপেন সোর্স LLM মডেল নিয়ে কাজ করব একটি মেটার তৈরী `llama3.2` আর অন্যটি আলিবাবার তৈরী `Qwen2.5`
+
+নিচের কমান্ড ব্যবহার করে llama3 এর 3 বিলিয়ন প্যারামিটারের মডেল টি ডাউনলোড করব (2.0 GB)
+> `ollama pull llama3.2:3b`
+
+নিচের কমান্ড ব্যবহার করে `qwen2.5` এর 7 বিলিয়ন প্যারামিটারের মডেল টি ডাউনলোড করব (4.7 GB)
+> `ollama pull qwen2.5:7b`
+
+আপনার সিস্টেমে থাকা সকল ollama মডেল দেখতে নিচের কমান্ডটি ব্যবহার করুন
+> `ollama list`
+
+Ollama API সম্পর্কে বিস্তারিত জানতে [এই লিঙ্কটি](https://github.com/ollama/ollama/blob/main/docs/api.md) ভিজিট করুন
+
 ## Resource Link
 * https://learn.microsoft.com/en-us/windows/wsl/install
 * https://github.com/pgvector/pgvector
 * https://www.postgresql.org/docs/current/view-pg-available-extensions.html
 * https://ollama.com
+* https://github.com/ollama/ollama/tree/main/docs

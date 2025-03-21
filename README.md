@@ -272,6 +272,26 @@ Ollama API সম্পর্কে বিস্তারিত জানতে 
 
 ## 7. n8n
 
+> `apt-get install build-essential -y`
+
+> `cd /tmp`
+
+> `git clone --depth 1 https://github.com/n8n-io/n8n`
+
+> `cd n8n`
+
+> `npm install -g pnpm` or `npm install -g npm@11.2.0`
+
+> `pnpm install`
+
+> `pnpm run build`
+
+> `pnpm run start`
+
+উপরোক্ত কমান্ড গুলো সফল ভাবে রান হবার পর পছন্দের ব্রাউসার ওপেন করে নিচের এড্রেসটিতে প্রবেশ করুন
+
+> `http://localhost:5678`
+
 
 ## Resource Link
 * https://learn.microsoft.com/en-us/windows/wsl/install
@@ -279,3 +299,4 @@ Ollama API সম্পর্কে বিস্তারিত জানতে 
 * https://www.postgresql.org/docs/current/view-pg-available-extensions.html
 * https://ollama.com
 * https://github.com/ollama/ollama/tree/main/docs
+* https://github.com/n8n-io/n8n

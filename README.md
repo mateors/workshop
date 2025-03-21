@@ -207,3 +207,4 @@ WantedBy=multi-user.target
 
 ## Resource Link
 * https://learn.microsoft.com/en-us/windows/wsl/install
+* https://ollama.com

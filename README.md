@@ -196,9 +196,11 @@ WantedBy=multi-user.target
 > নোটপ্যাড এডমিনিস্ট্রেটর মোড এ ওপেন করুন
 > ![open_as_administrator](./screens/openasadministrator.png)
 
-> এই `C:\Windows\System32\drivers\etc` লোকেশনে গিয়ে `pgadmin.reporunner.local` লাইনটি সংযুক্ত করুন 
+> এই `C:\Windows\System32\drivers\etc` লোকেশনে গিয়ে `hosts` ফাইলটি ওপেন করুন
 > ![hosts](./screens/hosts.png)
 
+> নিচের ছবির মত `pgadmin.reporunner.local` লাইনটি সংযুক্ত করুন 
+> ![pgadmin_dns](./screens/pgadmin_dns.png)
 
 ## Resource Link
 * https://learn.microsoft.com/en-us/windows/wsl/install

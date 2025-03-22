@@ -274,13 +274,17 @@ Ollama API সম্পর্কে বিস্তারিত জানতে 
 
 > `apt-get install build-essential -y`
 
-> `cd /tmp`
+> `cd /var/www`
+
+> `mkdir workshop`
+
+> `cd workshop`
 
 > `git clone --depth 1 https://github.com/n8n-io/n8n`
 
 > `cd n8n`
 
-> `npm install -g pnpm` or `npm install -g npm@11.2.0`
+> `npm install -g pnpm`
 
 > `pnpm install`
 
